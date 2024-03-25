@@ -15,6 +15,7 @@ public class AudioModel {
     private String fileName;
     private String fileType;
     private long size;
+    private Boolean isPremium;
 
     public String getFileName() {
         return fileName;
@@ -45,6 +46,12 @@ public class AudioModel {
     }
     public long getSize() {
         return size;
+    }
+    public Boolean getIsPremium() {
+        return isPremium;
+    }
+    public void setIsPremium(Boolean isPremium) {
+        this.isPremium = isPremium;
     }
 
 
