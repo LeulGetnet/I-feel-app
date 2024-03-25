@@ -19,22 +19,26 @@ public class AccountService {
 
     private EncryptionService encryptionService;
 
-    public Localuser createProfle(@RequestBody Localuser localuser){
+    public Localuser createProfle(@RequestBody RegisterBody RegisterBody) throws Exception{
 
          Localuser user = new Localuser();
 
-         user.setUsername(localuser.getUsername());
-         user.setFirstname(localuser.getFirstname());
-         user.setLastname(localuser.getLastname());
-         user.setAdress(localuser.getAdress());
-         user.setPassword(encryptionService.encryptPassword(localuser.getPassword()));
-         user.setEmail(localuser.getEmail());
+         if(accountRepository.findByEmail(RegisterBody.getEmail()).isPresent() || accountRepository.findByUsername(RegisterBody.getUsername()).isPresent() ){
+            throw new Exception("user already exist");
+         }
+
+         user.setUsername(RegisterBody.getUsername());
+         user.setFirstname(RegisterBody.getFirstname());
+         user.setLastname(RegisterBody.getLastname());
+        
+         user.setPassword(encryptionService.encryptPassword(RegisterBody.getPassword()));
+         user.setEmail(RegisterBody.getEmail());
 
          return user;
 
     }
 
-    public String login(@RequestBody loginbody loginbody){
+    public String login(@RequestBody LoginBody loginbody){
         Optional<Localuser> user = accountRepository.findByUsername(loginbody.getUsername());
         if(user.isPresent() && encryptionService.verifyPassword(loginbody.getPassword(), user.get().getPassword())){
             return jwtServises.generateJWT(user.get());
@@ -51,17 +55,7 @@ public class AccountService {
     
 }
 
-class loginbody{
-    private String username, password;
-    public void setPassword(String password) {
-        this.password = password;
-    }
-    public String getPassword() {
-        return password;
-    }public void setUsername(String username) {
-        this.username = username;
-    }public String getUsername() {
-        return username;
-    }
 
-}
+
+
+ 
