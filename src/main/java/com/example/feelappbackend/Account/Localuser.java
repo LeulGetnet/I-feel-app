@@ -36,8 +36,18 @@ public class Localuser {
     @Column(name = "password", nullable = false)
     private String password;
 
+    @Column(name = "is_premium" ,nullable = false)
+    private Boolean isPremium;
+
     @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE, orphanRemoval = true)
     private List<Adress> adress = new ArrayList<>();
+
+    public void setId(long id) {
+        this.id = id;
+    }
+    public long getId() {
+        return id;
+    }
 
     public String getUsername() {
         return username;
@@ -73,6 +83,12 @@ public class Localuser {
 
     public void setAdress(List<Adress> adress) {
         this.adress = adress;
+    }
+    public void setIsPremium(Boolean isPremium) {
+        this.isPremium = isPremium;
+    }
+    public Boolean getIsPremium() {
+        return isPremium;
     }
     public List<Adress> getAdress() {
         return adress;
