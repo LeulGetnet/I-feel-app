@@ -4,6 +4,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 
 import java.util.Optional;
+import java.util.List;
+
 
 
 /**
@@ -12,6 +14,8 @@ import java.util.Optional;
 public interface accountRepository extends JpaRepository<Localuser, Long>{
 
     public Optional<Localuser> findByUsername(String username);
+    public Optional<Localuser> findByEmail(String email);
+   
 
     
 } 
