@@ -13,14 +13,14 @@ public class MusicMOdel {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    long id;
+    private long id;
 
     @Column(name = "intensity", nullable = false)
-    Intensity intensity;
+    private Intensity intensity;
     @Column(name = "mood", nullable = false)
-    Mood mood;
+    private Mood mood;
     @Column(name = "length", nullable = false)
-    length length;
+    private length length;
 
     public void setId(long id) {
         this.id = id;
