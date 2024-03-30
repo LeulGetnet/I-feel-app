@@ -1,6 +1,9 @@
 package com.example.feelappbackend.Account;
 
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.ArrayList;
 
 import jakarta.persistence.CascadeType;
@@ -39,6 +42,7 @@ public class Localuser {
     @Column(name = "is_premium" ,nullable = false)
     private Boolean isPremium;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE, orphanRemoval = true)
     private List<Adress> adress = new ArrayList<>();
 

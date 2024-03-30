@@ -23,6 +23,7 @@ import jakarta.servlet.http.HttpServletResponse;
 public class JWTrequestfilter extends OncePerRequestFilter{
     @Autowired
     private accountRepository accountRepository;
+    @Autowired
     private JWTServises jwtServises;
 
     @Override
