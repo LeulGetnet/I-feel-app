@@ -1,4 +1,4 @@
-package com.example.feelappbackend.Account;
+package com.example.feelappbackend.Services;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,7 +9,7 @@ import org.springframework.security.web.SecurityFilterChain;
 public class securityConfig {
 
     @Bean
-    public SecurityFilterChain fikterchain(HttpSecurity http) throws Exception{
+    public SecurityFilterChain filterchain(HttpSecurity http) throws Exception{
         http.csrf().disable().cors().disable();
         http.authorizeHttpRequests().anyRequest().permitAll();
         return http.build();

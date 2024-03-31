@@ -1,10 +1,11 @@
-package com.example.feelappbackend.Account;
+package com.example.feelappbackend.Repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import com.example.feelappbackend.models.Localuser;
 
 import java.util.Optional;
-import java.util.List;
+
 
 
 

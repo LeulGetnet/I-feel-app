@@ -1,4 +1,4 @@
-package com.example.feelappbackend.Account;
+package com.example.feelappbackend.Services;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -13,6 +13,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import com.auth0.jwt.exceptions.JWTDecodeException;
+import com.example.feelappbackend.Repository.accountRepository;
+import com.example.feelappbackend.models.Localuser;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -21,7 +23,8 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @Component
 public class JWTrequestfilter extends OncePerRequestFilter{
-    @Autowired
+
+   
     private accountRepository accountRepository;
     private JWTServises jwtServises;
 

@@ -1,6 +1,4 @@
-package com.example.feelappbackend.Music;
-
-
+package com.example.feelappbackend.doa;
 
 public class musicBody {
    
@@ -8,17 +6,17 @@ public class musicBody {
    
     private String mood;
    
-    private length length;
+    private String length;
     public void setIntensity(String intensity) {
         this.intensity = intensity;
     }
     public String getIntensity() {
         return intensity;
     }
-    public void setLength(length length) {
+    public void setLength(String length) {
         this.length = length;
     }
-    public length getLength() {
+    public String getLength() {
         return length;
     }
     public void setMood(String mood) {

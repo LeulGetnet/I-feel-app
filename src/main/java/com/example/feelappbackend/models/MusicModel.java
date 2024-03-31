@@ -1,26 +1,44 @@
-package com.example.feelappbackend.Music;
+package com.example.feelappbackend.models;
 
+import java.util.List;
+
+import com.example.feelappbackend.doa.Intensity;
+import com.example.feelappbackend.doa.Mood;
+import com.example.feelappbackend.doa.elength;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
+
 @Entity
-@Table(name = "MusicModel")
-public class MusicMOdel {
+public class MusicModel {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column(name = "intensity", nullable = false)
+    @Enumerated(EnumType.STRING)
     private Intensity intensity;
+
     @Column(name = "mood", nullable = false)
+    @Enumerated(EnumType.STRING)
     private Mood mood;
+
     @Column(name = "length", nullable = false)
-    private length length;
+    @Enumerated(EnumType.STRING)
+    private elength length;
+
+    @OneToMany(mappedBy = "musicmodel", cascade = CascadeType.ALL)
+    private List<AudioModel> audios;
 
     public void setId(long id) {
         this.id = id;
@@ -34,10 +52,10 @@ public class MusicMOdel {
     public Intensity getIntensity() {
         return intensity;
     }
-    public void setLength(length length) {
+    public void setLength(elength length) {
         this.length = length;
     }
-    public length getLength() {
+    public elength getLength() {
         return length;
     }
     public void setMood(Mood mood) {
@@ -47,8 +65,14 @@ public class MusicMOdel {
         return mood;
     }
 
+    public List<AudioModel> getAudios() {
+        return audios;
+    }
+    public void setAudios(List<AudioModel> audios) {
+        this.audios = audios;
+    }
+
 }
 
-enum Intensity{calm,balanced,strong}
-enum Mood{sleep,rest,reboot,launch}
-enum length{quick,Short,medium,Lng, overnight}
+
+

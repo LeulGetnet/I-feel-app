@@ -1,4 +1,6 @@
-package com.example.feelappbackend.Music;
+package com.example.feelappbackend.doa;
+
+import org.springframework.web.multipart.MultipartFile;
 
 public class audioBody {
     private musicBody musicmodel;
@@ -6,6 +8,7 @@ public class audioBody {
     private String fileType;
     private long size;
     private Boolean isPremium;
+    private MultipartFile file;
 
     public void setFileName(String fileName) {
         this.fileName = fileName;
@@ -36,5 +39,11 @@ public class audioBody {
     }
     public long getSize() {
         return size;
+    }
+    public void setFile(MultipartFile file) {
+        this.file = file;
+    }
+    public MultipartFile getFile() {
+        return file;
     }
 }

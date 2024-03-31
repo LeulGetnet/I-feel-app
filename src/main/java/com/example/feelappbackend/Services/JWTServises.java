@@ -1,4 +1,4 @@
-package com.example.feelappbackend.Account;
+package com.example.feelappbackend.Services;
 
 import java.sql.Date;
 
@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
+import com.example.feelappbackend.models.Localuser;
 
 import jakarta.annotation.PostConstruct;
 
