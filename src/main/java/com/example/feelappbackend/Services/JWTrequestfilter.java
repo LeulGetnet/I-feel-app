@@ -26,6 +26,7 @@ public class JWTrequestfilter extends OncePerRequestFilter{
 
    
     private accountRepository accountRepository;
+    @Autowired
     private JWTServises jwtServises;
 
     @Override

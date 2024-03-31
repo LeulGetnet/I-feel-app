@@ -12,7 +12,7 @@ import com.example.feelappbackend.models.Localuser;
 
 import jakarta.annotation.PostConstruct;
 
-@Lazy
+
 @Service
 public class JWTServises {
     
@@ -42,7 +42,7 @@ public class JWTServises {
     }
 
     public String getUsername(String token){
-    return JWT.decode(token).getClaim(USERNAME_KEY).asString();
+        return JWT.decode(token).getClaim(USERNAME_KEY).asString();
     }
 
 

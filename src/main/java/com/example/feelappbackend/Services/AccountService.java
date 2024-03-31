@@ -7,11 +7,11 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
+
 import com.example.feelappbackend.Repository.accountRepository;
 import com.example.feelappbackend.doa.LoginBody;
 import com.example.feelappbackend.doa.RegisterBody;
 import com.example.feelappbackend.models.Localuser;
-
 /**
  * services
  */
@@ -20,11 +20,9 @@ public class AccountService {
 
     @Autowired
     private accountRepository accountRepository;
-
-    
+    @Autowired
     private JWTServises jwtServises;
 
-    @Autowired
     private EncryptionService encryptionService;
 
     public Localuser createProfle(@RequestBody RegisterBody RegisterBody) throws Exception{
