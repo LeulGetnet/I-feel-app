@@ -1,4 +1,4 @@
-package com.example.feelappbackend.Account;
+package com.example.feelappbackend.models;
 
 import java.util.List;
 

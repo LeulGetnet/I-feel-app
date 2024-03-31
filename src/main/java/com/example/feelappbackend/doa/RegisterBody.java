@@ -1,4 +1,4 @@
-package com.example.feelappbackend.Account;
+package com.example.feelappbackend.doa;
 
 public class RegisterBody {
 

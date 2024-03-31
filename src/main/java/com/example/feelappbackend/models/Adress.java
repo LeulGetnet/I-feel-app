@@ -1,4 +1,4 @@
-package com.example.feelappbackend.Account;
+package com.example.feelappbackend.models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -15,7 +15,6 @@ public class Adress {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     @Column( name="id", nullable = false)
     private long id;
 
@@ -71,7 +70,6 @@ public class Adress {
     public void setUser(Localuser user) {
         this.user = user;
     }
-
 
     
 }

@@ -1,4 +1,4 @@
-package com.example.feelappbackend.Account;
+package com.example.feelappbackend.Services;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

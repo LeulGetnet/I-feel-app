@@ -1,4 +1,4 @@
-package com.example.feelappbackend.Account;
+package com.example.feelappbackend.Services;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +8,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.example.feelappbackend.doa.LoginBody;
+import com.example.feelappbackend.doa.RegisterBody;
+import com.example.feelappbackend.models.Localuser;
 
 import io.micrometer.core.ipc.http.HttpSender.Response;
 
