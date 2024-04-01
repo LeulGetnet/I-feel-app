@@ -24,7 +24,7 @@ public class AudioModel {
     private long id;
 
     @ManyToOne(cascade = CascadeType.REMOVE)
-    @JoinColumn(name = "music_id", nullable = false)
+    @JoinColumn(name = "MusicModel_id", nullable = false)
     private MusicModel musicmodel;
     private String fileName;
     private String fileType;

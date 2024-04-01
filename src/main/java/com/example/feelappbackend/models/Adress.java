@@ -15,7 +15,6 @@ public class Adress {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column( name="id", nullable = false)
     private long id;
 
     @Column( name="adressLine1", nullable = false)
@@ -31,8 +30,8 @@ public class Adress {
     private String country;
 
     @ManyToOne(optional = false)
-    @JoinColumn(name = "user_id", nullable = false)
-    private Localuser user;
+    @JoinColumn(name = "localuser_id", nullable = false)
+    private Localuser localuser;
 
     public String getAdressLine1() {
         return adressLine1;
@@ -65,10 +64,10 @@ public class Adress {
         this.id = id;
     }
     public Localuser getUser() {
-        return user;
+        return this.localuser;
     }
     public void setUser(Localuser user) {
-        this.user = user;
+        this.localuser = user;
     }
 
     

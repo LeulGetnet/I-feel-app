@@ -43,7 +43,7 @@ public class Localuser {
     private Boolean isPremium;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE, orphanRemoval = true)
+    @OneToMany(mappedBy = "localuser", cascade = CascadeType.REMOVE, orphanRemoval = true)
     private List<Adress> adress = new ArrayList<>();
 
     public void setId(long id) {

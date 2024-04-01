@@ -9,6 +9,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.feelappbackend.Repository.accountRepository;
 import com.example.feelappbackend.doa.LoginBody;
 import com.example.feelappbackend.doa.RegisterBody;
 import com.example.feelappbackend.models.Localuser;
@@ -34,6 +35,9 @@ import java.util.List;
 public class controller {
 
     @Autowired
+    accountRepository accountRepository;
+
+    @Autowired
     private final AccountService accountService;
 
    
@@ -41,22 +45,19 @@ public class controller {
     public controller(AccountService accountService){
         this.accountService = accountService;
     }
-    @GetMapping("listusers/")
-    public List<Localuser> userList() {
-        return accountService.userList();
-    }
+ 
     
 
     @PostMapping("createProfile/")
-    public String createProfle(@RequestBody RegisterBody newuser) {
+    public Localuser createProfle(@RequestBody RegisterBody newuser) throws Exception {
         try{
-            accountService.createProfle(newuser);
+            
             //return ResponseEntity.ok().build();
-            return "success";
+            return accountService.createProfle(newuser);
 
         } catch(Exception e){
         //    return ResponseEntity.status(HttpStatus.CONFLICT).build();
-            return "error" + e;
+            throw new Exception("exception " + e);
         }
         
     }
@@ -69,6 +70,11 @@ public class controller {
     @GetMapping("profile/")
     public Localuser getProfle(@AuthenticationPrincipal Localuser user) {
         return user;
+    }
+
+    @GetMapping("users/")
+    public List<Localuser> users() {
+        return accountRepository.findAll();
     }
     
 }

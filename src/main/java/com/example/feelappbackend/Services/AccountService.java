@@ -22,7 +22,7 @@ public class AccountService {
     private accountRepository accountRepository;
     @Autowired
     private JWTServises jwtServises;
-
+    @Autowired
     private EncryptionService encryptionService;
 
     public Localuser createProfle(@RequestBody RegisterBody RegisterBody) throws Exception{
@@ -39,6 +39,9 @@ public class AccountService {
         
          user.setPassword(encryptionService.encryptPassword(RegisterBody.getPassword()));
          user.setEmail(RegisterBody.getEmail());
+         user.setIsPremium(false);
+
+         accountRepository.save(user);
 
          return user;
 

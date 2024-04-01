@@ -16,15 +16,12 @@ import org.springframework.util.StringUtils;
 public class audioStorageService {
 
     private final Path  fileStorage;
-    public audioStorageService(@Value("${file.upload-dir}") String uploadDir){
+    public audioStorageService(@Value("${file.upload-dir}") String uploadDir) {
 
         this.fileStorage = Paths.get(uploadDir).toAbsolutePath().normalize();
-        try {
-            Files.createDirectories(this.fileStorage);
-     } catch (IOException ex) {
-            throw new RuntimeException("Could not create the directory where the uploaded files will be stored.", ex);
-        }
-
+     
+       
+  
     }
 
     public String storeFile(MultipartFile file){
@@ -33,6 +30,7 @@ public class audioStorageService {
         String uniqueFileName = System.currentTimeMillis() + "_" + fileName;
 
         try {
+            Files.createDirectories(this.fileStorage);
           
             // Copy the file to the target location
             Path targetLocation = fileStorage.resolve(uniqueFileName);
