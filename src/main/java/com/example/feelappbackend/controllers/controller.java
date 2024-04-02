@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.example.feelappbackend.Repository.accountRepository;
 import com.example.feelappbackend.Services.AccountService;
@@ -15,6 +16,7 @@ import com.example.feelappbackend.Services.MusicService;
 import com.example.feelappbackend.doa.LoginBody;
 import com.example.feelappbackend.doa.RegisterBody;
 import com.example.feelappbackend.doa.audioBody;
+import com.example.feelappbackend.doa.musicBody;
 import com.example.feelappbackend.models.AudioModel;
 import com.example.feelappbackend.models.Localuser;
 
@@ -26,6 +28,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+
+import java.io.IOException;
 import java.util.List;
 
 
@@ -78,9 +82,9 @@ public class controller {
     }
     
     @PostMapping("addmusic/")
-    public AudioModel addMusic(@RequestBody audioBody audio) throws IllegalArgumentException{
+    public AudioModel addMusic(@RequestParam("file") MultipartFile file,@RequestBody musicBody musicBody) throws IllegalArgumentException, IOException{
         try {
-            return musicService.addMusic(audio);
+            return musicService.addMusic(file, musicBody);
         } catch (IllegalArgumentException e) {
             // TODO: handle exception
             throw new IllegalArgumentException(e);
@@ -91,3 +95,4 @@ public class controller {
   
     
 }
+
