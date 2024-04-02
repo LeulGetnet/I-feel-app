@@ -19,6 +19,7 @@ import jakarta.persistence.Table;
 
 
 @Entity
+@Table(name = "MusicModel")
 public class MusicModel {
     
     @Id
